@@ -1,12 +1,8 @@
 function isEnoughCapacity(products, containerSize) {
-  let aBag = 0;
-  for (const product of Object.values(products)) {
-    aBag += product;
-    if (aBag >= containerSize) {
-      return false;
-    } 
-  }
-  return true;
+  return Object.values(products).reduce((acc, product) => {
+    return acc += product;
+  }, 0) <= containerSize;
+
 }
 
 
